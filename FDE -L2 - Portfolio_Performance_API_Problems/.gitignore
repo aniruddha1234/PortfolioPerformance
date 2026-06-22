@@ -1,0 +1,20 @@
+# Build folders
+bin/
+obj/
+
+# Visual Studio
+.vs/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+
+# Rider
+.idea/
+
+# VS Code (optional)
+.vscode/
+
+# NuGet packages (if applicable)
+packages/

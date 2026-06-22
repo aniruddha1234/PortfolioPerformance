@@ -1,6 +1,6 @@
 # AI Usage Summary
 
-Generative AI tools (ChatGPT) were used to assist with:
+Generative AI tools (ChatGPT ,Github copilot ) were used to assist with:
 
 * Creating the initial Web API project structure.
 * Generating boilerplate classes.
