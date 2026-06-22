@@ -1,0 +1,35 @@
+## Test Evidence
+
+The application was verified using the following:
+
+### Build Verification
+
+```text
+dotnet build
+Build succeeded.
+```
+
+### Unit Tests
+
+```text
+dotnet test
+Passed: 6
+Failed: 0
+Skipped: 0
+```
+
+### API Testing
+
+The following endpoints were tested using Swagger:
+
+* POST `/api/transactions/process`
+* GET `/api/transactions/summary`
+
+Test scenarios executed:
+
+* Valid transaction processing
+* Duplicate transaction detection
+* Invalid request validation
+* Processing summary verification
+
+Expected results were observed for all scenarios.

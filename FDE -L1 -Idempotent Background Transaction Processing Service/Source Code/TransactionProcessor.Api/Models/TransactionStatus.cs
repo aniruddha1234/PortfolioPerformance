@@ -6,5 +6,6 @@ public enum TransactionStatus
     Processing,
     Processed,
     Duplicate,
-    FailedValidation
+    FailedValidation,
+    RetryPending
 }

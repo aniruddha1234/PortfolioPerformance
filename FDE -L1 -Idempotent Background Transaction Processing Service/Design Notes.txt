@@ -1,0 +1,32 @@
+# Design Notes
+
+## Assumptions
+
+* `TransactionId` uniquely identifies a transaction.
+* Transactions are processed independently, and Transactions are queued , processed in FIFO order by a single background worker..
+* In-memory storage is sufficient for the scope of this assessment.
+
+## Idempotency Approach
+
+Idempotency is implemented using an in-memory `ConcurrentDictionary` keyed by `TransactionId`. Before processing a transaction, the application checks whether the `TransactionId` has already been processed. If it exists, the transaction is identified as a duplicate and is not processed again.
+
+## Duplicate Handling
+
+Duplicate transactions are detected using `TransactionId`. When a duplicate request is received, it is marked with a `Duplicate` status, recorded in the processing summary, and excluded from further processing.
+
+## Error Handling
+
+* Requests are validated before being queued for background processing.
+* Transactions with missing mandatory fields or invalid amounts are marked as `FailedValidation`.
+* Exceptions in the background worker are logged using `ILogger` to prevent the worker from stopping unexpectedly.
+
+## AI-Assisted Development Usage
+
+Github copilot was used to assist with project structure, boilerplate code generation, documentation, and unit test scaffolding. All business logic, debugging, integration, and final verification were completed manually, and the solution was built and tested successfully before submission.
+
+## Known Limitations
+
+* Transaction data is stored in memory and is lost when the application stops.
+* Idempotency is limited to the application's runtime and does not persist across restarts.
+* Retry mechanisms, persistent storage, and distributed processing are outside the scope of this assessment.
+* Integration test cases

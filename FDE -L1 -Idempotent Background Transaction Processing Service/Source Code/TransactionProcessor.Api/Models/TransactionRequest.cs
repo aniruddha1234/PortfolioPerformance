@@ -11,4 +11,10 @@ public class TransactionRequest
     public string TransactionType { get; set; } = string.Empty;
 
     public decimal Amount { get; set; }
+
+     public string Currency { get; set; } = string.Empty;
+
+    public string SequenceNumber { get; set; } = string.Empty;
+
+
 }
