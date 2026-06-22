@@ -8,22 +8,23 @@
 
 ---
 
-## Run
+## Running the Application
 
-```bash
-dotnet restore
-dotnet build
-dotnet run --project PortfolioPerformance.Api
-```
+Navigate to the API project:
+
+cd PortfolioPerformance.Api
+
+Run the application:
+
+dotnet run
+
 
 Swagger
-
-```
+--------
 https://localhost:xxxx/swagger
 ```
 
----
-
+--
 ## Endpoint
 
 POST
