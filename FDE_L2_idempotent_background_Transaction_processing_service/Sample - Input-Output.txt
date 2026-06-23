@@ -43,7 +43,7 @@
 {
   "received": 0,
   "processing": 0,
-  "processed": 7,
+  "processed": 4,
   "retryPending": 0,
   "failed": 0,
   "duplicate": 1
