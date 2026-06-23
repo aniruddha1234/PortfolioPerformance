@@ -1,0 +1,106 @@
+# Test Evidence
+
+## Unit Tests
+
+
+### New Transaction
+
+```json
+{
+  "transactionId": "TXN-1001",
+  "requestId": "REQ-0001",
+  "amount": 1000,
+  "sequenceNumber": 1
+}
+```
+
+Expected
+
+```
+Received
+→ Processing
+→ Processed
+```
+
+---
+
+### Duplicate Transaction
+
+```json
+{
+  "transactionId": "TXN-1001",
+  "requestId": "REQ-0002",
+  "amount": 1000,
+  "sequenceNumber": 2
+}
+```
+
+Expected
+
+```
+Duplicate
+```
+
+---
+
+### Out-of-Order Processing
+
+Submitted
+
+```
+Sequence 5
+Sequence 2
+Sequence 3
+```
+
+Processed
+
+```
+2
+↓
+
+3
+↓
+
+5
+```
+
+---
+
+### Retry
+
+Observed
+
+```
+Processing
+
+↓
+
+RetryPending
+
+↓
+
+Processing
+
+↓
+
+Processed
+```
+
+---
+
+### Summary Endpoint
+
+Verified
+
+```json
+{
+  "received": 0,
+  "processing": 0,
+  "processed": 3,
+  "retryPending": 0,
+  "failed": 0,
+  "duplicate": 1
+}
+```
+

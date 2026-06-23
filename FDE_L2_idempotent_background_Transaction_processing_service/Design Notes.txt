@@ -1,0 +1,50 @@
+# Design Notes
+
+## Architecture
+
+- ASP.NET Core Web API
+- BackgroundService for asynchronous processing
+- ConcurrentDictionary for thread-safe in-memory storage
+
+## Processing Flow
+
+1. Client submits transaction.
+2. Request validation.
+3. Duplicate detection.
+4. Transaction stored as Received.
+5. Background worker picks transactions.
+6. Status changes:
+
+Received
+→ Processing
+→ Processed
+
+or
+
+Received
+→ Processing
+→ RetryPending
+→ Processing
+→ Failed
+
+## Idempotency
+
+Duplicate requests with the same RequestId return the existing transaction.
+
+## Duplicate Handling
+
+If a TransactionId already exists, the new request is marked as Duplicate.
+
+## Out-of-Order Handling
+
+Transactions are sorted using SequenceNumber before processing.
+
+## Retry Strategy
+
+Maximum retries: 3
+
+After third failure:
+
+Status = Failed
+
+

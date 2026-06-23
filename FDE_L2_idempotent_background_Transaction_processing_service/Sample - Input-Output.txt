@@ -1,0 +1,50 @@
+--------------------------------input------------------------------
+[
+  {
+    "transactionId": "TXN-5005",
+    "requestId": "REQ-5005",
+    "amount": 5000,
+    "sequenceNumber": 5
+  },
+  {
+    "transactionId": "TXN-5002",
+    "requestId": "REQ-5002",
+    "amount": 2000,
+    "sequenceNumber": 2
+  },
+  {
+    "transactionId": "TXN-5001",
+    "requestId": "REQ-5001",
+    "amount": 1000,
+    "sequenceNumber": 1
+  },
+  {
+    "transactionId": "TXN-5001",
+    "requestId": "REQ-5006",
+    "amount": 1000,
+    "sequenceNumber": 6
+  },
+  {
+    "transactionId": "TXN-5003",
+    "requestId": "REQ-5003",
+    "amount": 3000,
+    "sequenceNumber": 3
+  },
+  {
+    "transactionId": "TXN-5004",
+    "requestId": "REQ-5004",
+    "amount": 4000,
+    "sequenceNumber": 4
+  }
+]
+
+
+-----------------output----------------------------------
+{
+  "received": 0,
+  "processing": 0,
+  "processed": 7,
+  "retryPending": 0,
+  "failed": 0,
+  "duplicate": 1
+}
